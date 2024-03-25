@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+  height: 70px;
+  max-height: 70px;
+  font-size: 16px;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.rightSection {
+  display: flex;
+  gap: 20px;
+  flex: 1;
+  justify-content: right;
+  align-items: center;
+}
+
+.registerBtn {
+  color: #ffffff;
+  background-color: var(--main-color);
+  padding: 10px;
+  border-radius: 5px;
+}
