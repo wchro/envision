@@ -1,6 +1,8 @@
+import { UserAuth } from "../context/authContext";
 import styles from "./header.module.css";
 
 const Header = () => {
+  const { user, logOut } = UserAuth();
   return (
     <header className={styles.header}>
       <a className={styles.logo} title="envision" href="/">
@@ -20,12 +22,22 @@ const Header = () => {
         </ul>
       </nav>
       <div className={styles.rightSection}>
-        <a className={styles.loginBtn} href="#">
-          Log In
-        </a>
-        <a className={styles.registerBtn} href="/register">
-          Sign Up
-        </a>
+        {!user ? (
+          <>
+            <a className={styles.loginBtn} href="#">
+              Log In
+            </a>
+            <a className={styles.registerBtn} href="/register">
+              Sign Up
+            </a>
+          </>
+        ) : (
+          <>
+            <a onClick={logOut} className={styles.loginBtn} href="#">
+              Log Out
+            </a>
+          </>
+        )}
       </div>
     </header>
   );

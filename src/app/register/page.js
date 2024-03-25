@@ -1,12 +1,30 @@
 "use client";
+import { UserAuth } from "@/components/context/authContext";
 import styles from "./page.module.css";
+import { redirect } from "next/navigation";
+import { Redirect } from "@/utils/actions/redirect";
 export default function Register() {
+  const { register } = UserAuth();
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const password2 = formData.get("password2");
+
+    if (password === password2) {
+      const status_code = await register(email, password);
+      if (status_code.code === "ok") Redirect("/");
+      else alert(status_code.code);
+    } else alert("Contrasenas incorrectas");
+  };
   return (
     <main className={styles.main}>
       <div className={styles.leftSection}>
         <div className={styles.registerContainer}>
           <h1 className={styles.title}>Sign up</h1>
-          <form className={styles.registerForm}>
+          <form className={styles.registerForm} onSubmit={onSubmit}>
             <input type="email" name="email" placeholder="Email" />
             <input type="password" name="password" placeholder="Password" />
             <input
