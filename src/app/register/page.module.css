@@ -39,6 +39,7 @@
 }
 
 .registerForm button {
+  display: flex;
   background-color: var(--main-color);
   border: none;
   border-radius: 10px;
@@ -47,6 +48,9 @@
   font-weight: 500;
   font-size: 15px;
   cursor: pointer;
+  height: 48.5px;
+  justify-content: center;
+  align-items: center;
 }
 
 .registerContainer hr {
@@ -118,4 +122,17 @@
 
 .reason p {
   color: #808080;
+}
+
+.registerError {
+  padding: 10px;
+  background-color: darkred;
+  color: #f8f8f8;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.loading {
+  width: 25px;
+  height: 25px;
 }

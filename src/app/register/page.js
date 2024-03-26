@@ -1,29 +1,47 @@
 "use client";
 import { UserAuth } from "@/components/context/authContext";
 import styles from "./page.module.css";
-import { redirect } from "next/navigation";
 import { Redirect } from "@/utils/actions/redirect";
+import { useEffect, useState } from "react";
+import Spinner from "@/components/spinner/spinner";
+
 export default function Register() {
-  const { register } = UserAuth();
+  const { user, register } = UserAuth();
+
+  const [error, setError] = useState(null);
+  const [isLoading, setLoading] = useState(false);
 
   const onSubmit = async (event) => {
     event.preventDefault();
+
     const formData = new FormData(event.target);
     const email = formData.get("email");
     const password = formData.get("password");
     const password2 = formData.get("password2");
 
-    if (password === password2) {
-      const status_code = await register(email, password);
-      if (status_code.code === "ok") Redirect("/");
-      else alert(status_code.code);
-    } else alert("Contrasenas incorrectas");
+    setLoading(true);
+
+    if (email && password && password2) {
+      if (password === password2) {
+        const status_code = await register(email, password);
+        if (status_code.code === "ok") Redirect("/");
+        else setError(status_code.code);
+      } else setError("Passwords do not match");
+    } else setError("Please fill in all fields");
+
+    setLoading(false);
   };
+
+  // Logged?
+  useEffect(() => {
+    if (user) Redirect("/");
+  }, [user]);
   return (
     <main className={styles.main}>
       <div className={styles.leftSection}>
         <div className={styles.registerContainer}>
           <h1 className={styles.title}>Sign up</h1>
+          {error && <div className={styles.registerError}>{error}</div>}
           <form className={styles.registerForm} onSubmit={onSubmit}>
             <input type="email" name="email" placeholder="Email" />
             <input type="password" name="password" placeholder="Password" />
@@ -32,7 +50,15 @@ export default function Register() {
               name="password2"
               placeholder="Verify password"
             />
-            <button type="submit">Register</button>
+            <button type="submit">
+              {!isLoading ? (
+                "Register"
+              ) : (
+                <div className={styles.loading}>
+                  <Spinner />
+                </div>
+              )}
+            </button>
           </form>
           <hr />
           <div className={styles.alternativeMethods}>
