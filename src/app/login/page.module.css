@@ -1,0 +1,107 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 70px);
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  width: 392px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+}
+
+.loginContainer h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loginForm input {
+  background-color: #ececec;
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  height: 50px;
+}
+
+.loginForm button {
+  display: flex;
+  background-color: var(--main-color);
+  border: none;
+  border-radius: 10px;
+  padding: 15px;
+  color: #ffff;
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  height: 48.5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.registerBtn {
+  display: flex;
+  border: 2px solid var(--main-color);
+  border-radius: 10px;
+  padding: 15px;
+  color: var(--main-color);
+  font-weight: 500;
+  font-size: 15px;
+  cursor: pointer;
+  height: 48.5px;
+  justify-content: center;
+  align-items: center;
+}
+
+.loginContainer hr {
+  border: none;
+  border-radius: 25px;
+  background-color: #eeeeee;
+  height: 3px;
+}
+
+.alternativeMethods {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #111111;
+  gap: 15px;
+}
+
+.alternativeOptions {
+  display: flex;
+  gap: 20px;
+}
+
+.alternativeOptions button {
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.socialIcons {
+  pointer-events: none;
+}
+
+.loginError {
+  padding: 10px;
+  background-color: darkred;
+  color: #f8f8f8;
+  border-radius: 5px;
+}
+.loading {
+  width: 25px;
+  height: 25px;
+}

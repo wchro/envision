@@ -12,9 +12,19 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
+  const login = async (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        return { code: "ok" };
+      })
+      .catch((error) => {
+        return { code: error.code };
+      });
+  };
+
   const register = async (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password)
-      .then(async (userCredential) => {
+      .then((userCredential) => {
         const uid = userCredential.user.uid;
         return { code: "ok" };
       })
@@ -35,7 +45,7 @@ export const AuthContextProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AuthContext.Provider value={{ user, register, logOut }}>
+    <AuthContext.Provider value={{ user, login, register, logOut }}>
       {children}
     </AuthContext.Provider>
   );

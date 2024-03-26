@@ -24,7 +24,7 @@ const Header = () => {
       <div className={styles.rightSection}>
         {!user ? (
           <>
-            <a className={styles.loginBtn} href="#">
+            <a className={styles.loginBtn} href="/login">
               Log In
             </a>
             <a className={styles.registerBtn} href="/register">
