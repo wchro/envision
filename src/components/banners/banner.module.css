@@ -1,0 +1,47 @@
+.bannerContainer {
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+  position: relative;
+}
+
+.bannerContent {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 50px 0 50px;
+  gap: 10px;
+  max-width: 674px;
+}
+
+.bannerShortText {
+  display: inline-block;
+  padding: 10px;
+  background-color: rgba(34, 146, 164, 0.7);
+  color: #f8f8f8;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 25px;
+}
+
+.bannerText {
+  color: #f8f8f8;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.bannerBackground {
+  position: absolute;
+  color: white;
+  background-color: rgba(0, 0, 0);
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  border-radius: inherit;
+}
