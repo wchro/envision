@@ -11,7 +11,7 @@ const Header = () => {
       <nav className={styles.navbar}>
         <ul>
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
             <a href="#">Creators</a>
