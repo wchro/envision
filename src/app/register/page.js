@@ -24,7 +24,7 @@ export default function Register() {
     if (email && password && password2) {
       if (password === password2) {
         const status_code = await register(email, password);
-        if (status_code.code === "ok") Redirect("/");
+        if (status_code.code === "ok") Redirect("/register/complete");
         else setError(status_code.code);
       } else setError("Passwords do not match");
     } else setError("Please fill in all fields");
