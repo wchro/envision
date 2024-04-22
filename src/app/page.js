@@ -3,6 +3,7 @@
 import Banner from "@/components/banners/banner";
 import styles from "./page.module.css";
 import { UserAuth } from "@/components/context/authContext";
+import ProfilesTabs from "@/components/profiles/profilesTabs";
 
 export default function Home() {
   const { user } = UserAuth();
@@ -17,6 +18,7 @@ export default function Home() {
           image={"/static/images/top-banner-image.jpg"}
         />
       </div>
+      <ProfilesTabs />
     </main>
   );
 }

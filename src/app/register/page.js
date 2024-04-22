@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Spinner from "@/components/spinner/spinner";
 
 export default function Register() {
+  const [loginChecked, isLoginChecked] = useState(false);
   const { user, register } = UserAuth();
 
   const [error, setError] = useState(null);
@@ -34,7 +35,8 @@ export default function Register() {
 
   // Logged?
   useEffect(() => {
-    if (user) Redirect("/");
+    if (user && !loginChecked) Redirect("/");
+    isLoginChecked(true);
   }, [user]);
   return (
     <main className={styles.main}>
