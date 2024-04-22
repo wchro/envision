@@ -1,8 +1,19 @@
-import admin from "./firebaseAdmin";
+import { getFirestore, setDoc, getDoc, doc } from "firebase/firestore";
 
-export const firestore = admin.firestore();
+import { fireApp } from "./core/firebase";
 
-export const getData = (collection) => firestore.collection(collection).get();
+const db = getFirestore(fireApp);
 
-export const testfire = async () =>
-  await firestore.collection("test").doc().set({ test: "dos" });
+export async function insertData(collection, fireDoc, data) {
+  if (fireDoc)
+    await setDoc(doc(db, collection, fireDoc), data, { merge: true });
+  else await setDoc(doc(db, collection), data, { merge: true });
+}
+
+export async function queryData(collection, fireDoc) {
+  if (fireDoc) {
+    const data = await getDoc(doc(db, collection, fireDoc));
+    if (!data.exists) return false;
+    return data.data();
+  }
+}
