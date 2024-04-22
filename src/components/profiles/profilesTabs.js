@@ -26,7 +26,7 @@ const ProfilesTabs = () => {
             <div className={styles.profileCard}>
               <h2>John Smith</h2>
               <div className={styles.profileImage}>
-                <img src="/static/images/8.jpg" />
+                <img src="/static/images/default.jpg" />
               </div>
             </div>
           </a>
@@ -34,7 +34,7 @@ const ProfilesTabs = () => {
             <div className={styles.profileCard}>
               <h2>John Smith</h2>
               <div className={styles.profileImage}>
-                <img src="/static/images/8.jpg" />
+                <img src="/static/images/default.jpg" />
               </div>
             </div>
           </a>
@@ -42,7 +42,7 @@ const ProfilesTabs = () => {
             <div className={styles.profileCard}>
               <h2>John Smith</h2>
               <div className={styles.profileImage}>
-                <img src="/static/images/8.jpg" />
+                <img src="/static/images/default.jpg" />
               </div>
             </div>
           </a>
@@ -50,7 +50,7 @@ const ProfilesTabs = () => {
             <div className={styles.profileCard}>
               <h2>John Smith</h2>
               <div className={styles.profileImage}>
-                <img src="/static/images/8.jpg" />
+                <img src="/static/images/default.jpg" />
               </div>
             </div>
           </a>
@@ -58,7 +58,7 @@ const ProfilesTabs = () => {
             <div className={styles.profileCard}>
               <h2>John Smith</h2>
               <div className={styles.profileImage}>
-                <img src="/static/images/8.jpg" />
+                <img src="/static/images/default.jpg" />
               </div>
             </div>
           </a>
@@ -66,7 +66,7 @@ const ProfilesTabs = () => {
             <div className={styles.profileCard}>
               <h2>John Smith</h2>
               <div className={styles.profileImage}>
-                <img src="/static/images/8.jpg" />
+                <img src="/static/images/default.jpg" />
               </div>
             </div>
           </a>
